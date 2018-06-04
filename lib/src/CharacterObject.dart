@@ -19,6 +19,8 @@ class CharacterObject {
     TextInputElement nameElement;
     List<StatObject> stats = new List<StatObject>();
 
+    Element canvasViewer;
+
 
     CharacterObject(String this.name, String this.dollString) {
         initializeStats();
@@ -160,12 +162,14 @@ class CharacterObject {
 
     void syncDataBox() {
         dataBoxElement.value = toDataString();
+        syncViewerToDoll();
     }
 
     void syncObjectToDataBox() {
         print("going to sync object to data box");
         copyFromDataString(dataBoxElement.value);
         print("going to sync form to data box");
+        syncViewerToDoll();
         syncFormToObject();
     }
 
@@ -189,14 +193,25 @@ class CharacterObject {
     }
 
     void makeViewer(Element subContainer) {
-        DivElement canvasContainer = new DivElement();
-        canvasContainer.classes.add("charViewer");
-        subContainer.append(canvasContainer);
+        canvasViewer = new DivElement();
+        canvasViewer.classes.add("charViewer");
+        subContainer.append(canvasViewer);
         CanvasElement canvas = new CanvasElement(width: cardWidth, height: cardHeight);
-        canvasContainer.append(canvas);
+        canvasViewer.append(canvas);
         makeViewerBorder(canvas);
         makeViewerDoll(canvas);
         makeViewerText(canvas);
+    }
+
+    void syncViewerToDoll() {
+        if(canvasViewer != null) {
+            canvasViewer.setInnerHtml("");
+            CanvasElement canvas = new CanvasElement(width: cardWidth, height: cardHeight);
+            canvasViewer.append(canvas);
+            makeViewerBorder(canvas);
+            makeViewerDoll(canvas);
+            makeViewerText(canvas);
+        }
     }
 
     void makeViewerBorder(CanvasElement canvas) {

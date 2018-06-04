@@ -1,12 +1,15 @@
 
 
+import 'dart:async';
 import "dart:html";
 import "package:CreditsLib/CharacterLib.dart";
 import 'package:CreditsLib/src/CharacterObject.dart';
+import 'package:RenderingLib/RendereringLib.dart';
 
 Element content = querySelector("#content");
 
-void main() {
+Future<Null> main() async{
+    await Loader.preloadManifest();
     CreditsObject co = new CreditsObject("SomethingMemorable","");
     co.makeForm(content);
 
