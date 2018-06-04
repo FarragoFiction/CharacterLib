@@ -1,22 +1,15 @@
 # CreditsLib
 
-A library for Dart developers.
-
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+A thing to make giving people credit for helping easier to do. Includes a form to let ppl submit a bunch of info that then get serialized to a data string.
 
 ## Usage
 
-A simple usage example:
-
-    import 'package:CreditsLib/CreditsLib.dart';
-
-    main() {
-      var awesome = new Awesome();
-    }
+Ahahahahah. No.
 
 ## Features and bugs
 
-Please file feature requests and bugs at the [issue tracker][tracker].
+I really don't expect ppl to use this besides me.
 
-[tracker]: http://example.com/issues/replaceme
+It should let you render a form to any sub project that lets ppl submit Credits data.
+
+It should also let you render all credits as html (along with doll avatars). 
