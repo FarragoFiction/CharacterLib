@@ -25,8 +25,8 @@ class CreditsObject
         container.append(subContainer);
         makeDataStringForm(header);
         makeNameForm(subContainer);
-        makeDollForm(subContainer);
         makeWebsiteForm(subContainer);
+        makeDollForm(subContainer);
         makePhraseForm(subContainer);
         makeWhatYouDidForm(subContainer);
     }
@@ -59,7 +59,7 @@ class CreditsObject
         LabelElement label = new LabelElement()..text = "Your Avatar DollString:";
         label.classes.add("creditsFormLabel");
         TextAreaElement text = new TextAreaElement();
-        text.classes.add("creditsFormTextInput");
+        text.classes.add("creditsFormTextArea");
         text.value = dollString;
         subContainer.append(label);
         subContainer.append(text);
