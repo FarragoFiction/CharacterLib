@@ -108,7 +108,7 @@ class CharacterObject {
         DivElement subContainer = new DivElement();
         subContainer.classes.add("creditsFormBox");
 
-        DivElement header = new DivElement()..text = "Credits Creator";
+        DivElement header = new DivElement()..text = "Charactor Creator";
         header.classes.add("creditsFormHeader");
         subContainer.append(header);
 
