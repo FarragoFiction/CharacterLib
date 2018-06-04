@@ -6,6 +6,7 @@ import "package:RenderingLib/RendereringLib.dart";
 import 'package:DollLibCorrect/DollRenderer.dart';
 import 'package:CreditsLib/src/StatObject.dart';
 class CharacterObject {
+    static String labelPattern = ",";
 
     int cardWidth = 400;
     int cardHeight = 525;
@@ -24,12 +25,15 @@ class CharacterObject {
 
     CharacterObject(String this.name, String this.dollString) {
         initializeStats();
-        Random rand = new Random();
         doll = Doll.randomDollOfType(1);
     }
 
     int get seed {
-        return 13;
+        if(doll != null) {
+            return doll.seed;
+        }else {
+            return name.codeUnitAt(0);
+        }
     }
 
     CharacterObject.fromDataString(String dataString){
@@ -50,6 +54,10 @@ class CharacterObject {
     }
 
     void copyFromDataString(String dataString) {
+        List<String> parts = dataString.split("$labelPattern");
+        if(parts.length > 1) {
+            dataString = parts[1];
+        }
         String rawJson = new String.fromCharCodes(BASE64URL.decode(dataString));
         JSONObject json = new JSONObject.fromJSONString(rawJson);
         copyFromJSON(json);
@@ -82,7 +90,7 @@ class CharacterObject {
 
     String toDataString() {
         String ret = toJSON().toString();
-        return BASE64URL.encode(ret.codeUnits);
+        return "$name$labelPattern${BASE64URL.encode(ret.codeUnits)}";
     }
 
     JSONObject toJSON() {
@@ -153,8 +161,12 @@ class CharacterObject {
         dollStringElement.classes.add("creditsFormTextArea");
         dollStringElement.onInput.listen((Event e) {
             dollString = dollStringElement.value;
-            //TODO test this with a doll
-            syncDataBox();
+            try {
+                doll = Doll.loadSpecificDoll(dollString);
+                syncDataBox();
+            }catch(e) {
+                window.alert("Error loading doll. Are you sure it was a valid DollSim URL?");
+            }
         });
         subContainer.append(label);
         subContainer.append(dollStringElement);
@@ -169,6 +181,9 @@ class CharacterObject {
         print("going to sync object to data box");
         copyFromDataString(dataBoxElement.value);
         print("going to sync form to data box");
+        if(doll.toDataBytesX() != dollString) {
+            doll = Doll.loadSpecificDoll(dollString);
+        }
         syncViewerToDoll();
         syncFormToObject();
     }
@@ -220,17 +235,17 @@ class CharacterObject {
         int lineWidth = 6;
         canvas.context2D.lineWidth = lineWidth;
         canvas.context2D.fillRect(0, 0, canvas.width, canvas.height);
-        canvas.context2D.strokeRect(lineWidth,lineWidth,canvas.width-(lineWidth*2), canvas.height-(lineWidth*2));
+        canvas.context2D.strokeRect(lineWidth-2,lineWidth-2,canvas.width-(lineWidth+2), canvas.height-(lineWidth+2));
     }
 
     void makeViewerText(CanvasElement canvas) {
-        canvas.context2D.fillStyle = "#00ff00";
-        canvas.context2D.strokeStyle = "#00ff00";
+        canvas.context2D.fillStyle = "#ffffff";
+        canvas.context2D.strokeStyle = "#ffffff";
         int fontSize = 24;
         int currentY = (300+fontSize*2).ceil();
 
         canvas.context2D.font = "bold ${fontSize}pt Courier New";
-        canvas.context2D.fillText("$name",20,currentY);
+        Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, name, "Courier New", 20, currentY, fontSize, cardWidth-50, fontSize);
         fontSize = 18;
         canvas.context2D.font = "bold ${fontSize}pt Courier New";
         currentY += (fontSize*2).round();

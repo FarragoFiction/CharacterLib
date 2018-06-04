@@ -7,7 +7,7 @@ class StatObject {
     static int MAXVALUE = 113;
     static int MINVALUE = -113;
 
-    static String PATIENCE = "patience";
+    static String PATIENCE = "patient";
     static String ENERGETIC = "energetic";
     static String IDEALISTIC = "idealistic";
     static String CURIOUS = "curious";

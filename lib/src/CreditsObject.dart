@@ -10,17 +10,15 @@ import 'package:CreditsLib/src/CharacterObject.dart';
 //TODO slurp from text file
 class CreditsObject extends CharacterObject
 {
-    String website;
-    String phrase;
-    String whatYouDid;
+    String website = "derp";
+    String phrase = "I helped!!!";
+    String whatYouDid = "I did a thing!!!";
 
     TextAreaElement phraseElement;
     TextAreaElement whatYouDidElement;
     TextInputElement websiteElement;
 
-
-
-
+    Element creditsContainer;
 
 
     CreditsObject(String name, String dollString):super(name, dollString);
@@ -30,6 +28,7 @@ class CreditsObject extends CharacterObject
     }
     @override
     void makeForm(Element container) {
+        makeBox(container);
         DivElement subContainer = new DivElement();
         subContainer.classes.add("creditsFormBox");
 
@@ -47,6 +46,59 @@ class CreditsObject extends CharacterObject
         makeStatForm(subContainer);
 
         syncFormToObject();
+    }
+
+    @override
+    void syncViewerToDoll() {
+        if(canvasViewer != null) {
+            canvasViewer.setInnerHtml("");
+            CanvasElement canvas = new CanvasElement(width: cardWidth, height: cardHeight);
+            canvasViewer.append(canvas);
+            makeViewerBorder(canvas);
+            makeViewerDoll(canvas);
+            makeViewerText(canvas);
+        }
+        syncCredits();
+    }
+
+    void makeBox(Element container) {
+        TableElement table = new TableElement();
+        container.append(table);
+        TableRowElement tr = new TableRowElement();
+        table.append(tr);
+
+        TableCellElement td1 = new TableCellElement();
+        tr.append(td1);
+        TableCellElement td2 = new TableCellElement();
+        tr.append(td2);
+        makeViewer(td1);
+        makeCredits(td2);
+    }
+
+    void makeCredits(Element container) {
+        creditsContainer = new DivElement();
+        container.append(creditsContainer);
+        creditsContainer.classes.add("creditsBox");
+        syncCredits();
+    }
+
+    void syncCredits() {
+        creditsContainer.setInnerHtml("");
+        DivElement phraseContainer = new DivElement()..setInnerHtml("<b>Phrase:</b> $phrase");
+        phraseContainer.classes.add("creditsLine");
+        creditsContainer.append(phraseContainer);
+        DivElement taskContainer = new DivElement()..setInnerHtml("<b>Acomplishment:</b> $whatYouDid");
+        taskContainer.classes.add("creditsLine");
+
+        creditsContainer.append(taskContainer);
+
+        if(website != null && website.isNotEmpty) {
+            AnchorElement websiteContainer = new AnchorElement(href: "$website")
+                ..text = "Check Out My Website: $website";
+            websiteContainer.classes.add("creditsLine");
+
+            creditsContainer..append(websiteContainer);
+        }
     }
 
     @override
