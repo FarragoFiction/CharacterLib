@@ -3,7 +3,7 @@
 import 'dart:convert';
 import "dart:html";
 import "JSONObject.dart";
-//TODO wire up forms
+//TODO let them pick between 113 and -113 for wiggler sim stats.
 //TODO load from data string
 //TODO slurp from text file
 class CreditsObject
