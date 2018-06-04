@@ -8,6 +8,14 @@
     margin-bottom: 30px;
 }
 
+.statElement{
+    .padding: 10px;
+}
+
+.labelValueElement{
+    margin-right: 10px;
+}
+
 .creditsFormBox{
     margin-left: auto;
     margin-right: auto;

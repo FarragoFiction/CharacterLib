@@ -22,6 +22,7 @@ class StatObject {
 
     String namePositive;
     String nameNegative;
+    LabelElement valueElement;
     InputElement rangeElement;
     CharacterObject owner;
 
@@ -36,7 +37,10 @@ class StatObject {
 
     void makeForm(Element container) {
         DivElement subContainer = new DivElement();
+        subContainer.classes.add("statElement");
         container.append(subContainer);
+        valueElement = new LabelElement();
+        valueElement.classes.add("labelValueElement");
         LabelElement labelNeg = new LabelElement()..text = nameNegative;
 
         rangeElement = new InputElement();
@@ -47,10 +51,12 @@ class StatObject {
 
         rangeElement.onInput.listen((Event e) {
             value = int.parse(rangeElement.value);
+            valueElement.text = "${value} ($name)";
             this.owner.syncDataBox();
         });
 
         LabelElement labelPos = new LabelElement()..text = namePositive;
+        subContainer.append(valueElement);
         subContainer.append(labelNeg);
         subContainer.append(rangeElement);
         subContainer.append(labelPos);
@@ -58,7 +64,8 @@ class StatObject {
     }
 
     void syncFormToObject() {
-        if(rangeElement != null) rangeElement.value = "$value";
+        rangeElement.value = "$value";
+        valueElement.text = "${value} ($name)";
     }
 
     void copyFromJSON(JSONObject json) {
