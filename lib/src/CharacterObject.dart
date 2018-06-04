@@ -15,7 +15,9 @@ class CharacterObject {
     List<StatObject> stats = new List<StatObject>();
 
 
-    CharacterObject(String this.name, String this.dollString);
+    CharacterObject(String this.name, String this.dollString) {
+        initializeStats();
+    }
 
     int get seed {
         return 13;
@@ -163,12 +165,16 @@ class CharacterObject {
         makeDataStringForm(header);
         makeNameForm(subContainer);
         makeDollForm(subContainer);
+        makeStatForm(subContainer);
 
+
+        syncFormToObject();
+    }
+
+    void makeStatForm(Element subContainer) {
         for(StatObject s in stats) {
             s.makeForm(subContainer);
         }
-
-        syncFormToObject();
     }
 
 }

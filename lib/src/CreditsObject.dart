@@ -44,6 +44,7 @@ class CreditsObject extends CharacterObject
         makeDollForm(subContainer);
         makePhraseForm(subContainer);
         makeWhatYouDidForm(subContainer);
+        makeStatForm(subContainer);
 
         syncFormToObject();
     }

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="34771aea-564e-4b12-9b4b-737a144c6257" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/CharacterObject.dart" afterPath="$PROJECT_DIR$/lib/src/CharacterObject.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/CreditsObject.dart" afterPath="$PROJECT_DIR$/lib/src/CreditsObject.dart" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/StatObject.dart" afterPath="$PROJECT_DIR$/lib/src/StatObject.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -29,21 +30,21 @@
       <file leaf-file-name="CreditsObject.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/CreditsObject.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            <state relative-caret-position="-632">
+              <caret line="46" column="35" lean-forward="false" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
               <folding>
-                <element signature="e#0#3802#0" expanded="true" />
+                <element signature="e#0#3838#0" expanded="true" />
                 <element signature="e#66#88#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CharacterObject.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CharacterObject.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/CharacterObject.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="61" column="53" lean-forward="false" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
+            <state relative-caret-position="140">
+              <caret line="167" column="20" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -51,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StatObject.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StatObject.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/src/StatObject.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="75" column="21" lean-forward="false" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+            <state relative-caret-position="86">
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -140,10 +141,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>dollSTring</find>
-      <find>makeForm</find>
       <find>toJS</find>
       <find>form</find>
       <find>syncObj</find>
+      <find>makeForm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -162,12 +163,12 @@
         <option value="$PROJECT_DIR$/example/style.css" />
         <option value="$PROJECT_DIR$/example/index.html" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/lib/src/CreditsObject.dart" />
         <option value="$PROJECT_DIR$/example/main.dart" />
         <option value="$PROJECT_DIR$/example/styles.css" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/src/StatObject.dart" />
         <option value="$PROJECT_DIR$/lib/src/CharacterObject.dart" />
+        <option value="$PROJECT_DIR$/lib/src/CreditsObject.dart" />
+        <option value="$PROJECT_DIR$/lib/src/StatObject.dart" />
       </list>
     </option>
   </component>
@@ -623,17 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/CreditsObject.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#3802#0" expanded="true" />
-            <element signature="e#66#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -642,20 +632,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/StatObject.dart">
+    <entry file="file://$PROJECT_DIR$/lib/src/CharacterObject.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="75" column="21" lean-forward="false" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+        <state relative-caret-position="140">
+          <caret line="167" column="20" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/CharacterObject.dart">
+    <entry file="file://$PROJECT_DIR$/lib/src/CreditsObject.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="61" column="53" lean-forward="false" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
+        <state relative-caret-position="-632">
+          <caret line="46" column="35" lean-forward="false" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#3838#0" expanded="true" />
+            <element signature="e#66#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/StatObject.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>

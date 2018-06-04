@@ -38,7 +38,6 @@ class StatObject {
         DivElement subContainer = new DivElement();
         container.append(subContainer);
         LabelElement labelNeg = new LabelElement()..text = nameNegative;
-        labelNeg.classes.add("creditsFormLabel");
 
         rangeElement = new InputElement();
         rangeElement.type = "range";
@@ -52,7 +51,6 @@ class StatObject {
         });
 
         LabelElement labelPos = new LabelElement()..text = namePositive;
-        labelPos.classes.add("creditsFormLabel");
         subContainer.append(labelNeg);
         subContainer.append(rangeElement);
         subContainer.append(labelPos);
@@ -60,7 +58,7 @@ class StatObject {
     }
 
     void syncFormToObject() {
-        rangeElement.value = "$value";
+        if(rangeElement != null) rangeElement.value = "$value";
     }
 
     void copyFromJSON(JSONObject json) {
