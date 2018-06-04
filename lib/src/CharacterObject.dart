@@ -6,7 +6,7 @@ import "package:RenderingLib/RendereringLib.dart";
 import 'package:DollLibCorrect/DollRenderer.dart';
 import 'package:CreditsLib/src/StatObject.dart';
 class CharacterObject {
-    static String labelPattern = ",";
+    static String labelPattern = ":___ ";
 
     int cardWidth = 400;
     int cardHeight = 525;
@@ -89,12 +89,35 @@ class CharacterObject {
     }
 
     String toDataString() {
-        String ret = toJSON().toString();
-        return "$name$labelPattern${BASE64URL.encode(ret.codeUnits)}";
+        try {
+            String ret = toJSON().toString();
+            return "$name$labelPattern${BASE64URL.encode(ret.codeUnits)}";
+        }catch(e) {
+            print(e);
+            window.alert("Error Saving Data. Are there any special characters in there? ${validate()}$e");
+        }
+    }
+
+    String validate() {
+        String ret = null;
+        ret = validateString(name);
+        if(ret != null) return ret;
+        return null;
+    }
+
+    //make sure is base 64 encoded
+    static String validateString(String s) {
+        for(int i in s.codeUnits) {
+            if(i>255) {
+                return "What character is ${new String.fromCharCode(i)}???";
+            }
+        }
+        return null;
     }
 
     JSONObject toJSON() {
         JSONObject json = new JSONObject();
+        if(doll != null) dollString = doll.toDataBytesX();
         json["dollString"] = dollString;
         json["name"] = name;
 

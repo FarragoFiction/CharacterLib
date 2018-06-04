@@ -10,7 +10,7 @@ import 'package:CreditsLib/src/CharacterObject.dart';
 //TODO slurp from text file
 class CreditsObject extends CharacterObject
 {
-    String website = "derp";
+    String website = "";
     String phrase = "I helped!!!";
     String whatYouDid = "I did a thing!!!";
 
@@ -115,8 +115,23 @@ class CreditsObject extends CharacterObject
         json["website"] = website;
         json["phrase"] = phrase;
         json["whatYouDid"] = whatYouDid;
+        print(phrase.codeUnits);
         return json;
     }
+
+    String validate() {
+        String ret = null;
+        ret = super.validate();
+        if(ret != null) return ret;
+        ret = CharacterObject.validateString(website);
+        if(ret != null) return ret;
+        ret = CharacterObject.validateString(whatYouDid);
+        if(ret != null) return ret;
+        ret = CharacterObject.validateString(phrase);
+        if(ret != null) return ret;
+        return null;
+    }
+
 
     @override
     void syncFormToObject() {
