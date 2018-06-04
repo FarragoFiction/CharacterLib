@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import "dart:html";
 import "JSONObject.dart";
@@ -5,8 +6,12 @@ import "package:RenderingLib/RendereringLib.dart";
 import 'package:DollLibCorrect/DollRenderer.dart';
 import 'package:CreditsLib/src/StatObject.dart';
 class CharacterObject {
+
+    int cardWidth = 400;
+    int cardHeight = 525;
     String dollString;
     String name;
+    Doll doll;
 
 
     TextAreaElement dataBoxElement;
@@ -17,6 +22,8 @@ class CharacterObject {
 
     CharacterObject(String this.name, String this.dollString) {
         initializeStats();
+        Random rand = new Random();
+        doll = Doll.randomDollOfType(1);
     }
 
     int get seed {
@@ -94,6 +101,7 @@ class CharacterObject {
 
     void syncFormToObject() {
         nameElement.value = name;
+        dollString = doll.toDataBytesX();
         dollStringElement.value = dollString;
 
         for(StatObject s in stats) {
@@ -162,6 +170,7 @@ class CharacterObject {
     }
 
     void makeForm(Element container) {
+        makeViewer(container);
         DivElement subContainer = new DivElement();
         subContainer.classes.add("creditsFormBox");
 
@@ -177,6 +186,54 @@ class CharacterObject {
 
 
         syncFormToObject();
+    }
+
+    void makeViewer(Element subContainer) {
+        DivElement canvasContainer = new DivElement();
+        canvasContainer.classes.add("charViewer");
+        subContainer.append(canvasContainer);
+        CanvasElement canvas = new CanvasElement(width: cardWidth, height: cardHeight);
+        canvasContainer.append(canvas);
+        makeViewerBorder(canvas);
+        makeViewerDoll(canvas);
+        makeViewerText(canvas);
+    }
+
+    void makeViewerBorder(CanvasElement canvas) {
+        canvas.context2D.fillStyle = "#616161";
+        canvas.context2D.strokeStyle = "#3b3b3b";
+        int lineWidth = 6;
+        canvas.context2D.lineWidth = lineWidth;
+        canvas.context2D.fillRect(0, 0, canvas.width, canvas.height);
+        canvas.context2D.strokeRect(lineWidth,lineWidth,canvas.width-(lineWidth*2), canvas.height-(lineWidth*2));
+    }
+
+    void makeViewerText(CanvasElement canvas) {
+        canvas.context2D.fillStyle = "#00ff00";
+        canvas.context2D.strokeStyle = "#00ff00";
+        int fontSize = 24;
+        int currentY = (300+fontSize*2).ceil();
+
+        canvas.context2D.font = "bold ${fontSize}pt Courier New";
+        canvas.context2D.fillText("$name",20,currentY);
+        fontSize = 18;
+        canvas.context2D.font = "bold ${fontSize}pt Courier New";
+        currentY += (fontSize*2).round();
+        for(StatObject s in stats) {
+            canvas.context2D.fillText("${s.name}:",20,currentY);
+            canvas.context2D.fillText("${s.value.abs()}",350-fontSize,currentY);
+
+            currentY += (fontSize*1.2).round();
+        }
+    }
+
+    Future<Null> makeViewerDoll(CanvasElement canvas) async{
+        CanvasElement dollCanvas = new CanvasElement(width: doll.width, height: doll.height);
+        await DollRenderer.drawDoll(dollCanvas, doll);
+        int buffer = 12;
+        CanvasElement allocatedSpace = new CanvasElement(width: cardWidth-buffer, height: 300);
+        Renderer.drawToFitCentered(allocatedSpace, dollCanvas);
+        canvas.context2D.drawImage(allocatedSpace,buffer, buffer);
     }
 
     void makeStatForm(Element subContainer) {

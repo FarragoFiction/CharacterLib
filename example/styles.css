@@ -26,6 +26,12 @@
     margin-left: 10px;
 }
 
+.charViewer{
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
 .creditsFormRangeInput {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
