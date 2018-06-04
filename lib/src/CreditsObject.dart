@@ -49,7 +49,7 @@ class CreditsObject
 
     void copyFromDataString(String dataString) {
         String rawJson = new String.fromCharCodes(BASE64URL.decode(dataString));
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject.fromJSONString(rawJson);
         copyFromJSON(json);
     }
 
@@ -82,6 +82,7 @@ class CreditsObject
 
     void syncObjectToDataBox() {
         copyFromDataString(dataBoxElement.value);
+        syncFormToObject();
     }
 
     void syncFormToObject() {
@@ -98,6 +99,14 @@ class CreditsObject
         container.append(subContainer);
         dataBoxElement = new TextAreaElement();
         dataBoxElement.classes.add("creditsFormTextArea");
+        dataBoxElement.onChange.listen((e) {
+            try {
+                syncObjectToDataBox();
+            }catch(e) {
+                print(e);
+                window.alert("error parsing data string, $e");
+            }
+        });
         subContainer.append(dataBoxElement);
     }
 
@@ -108,6 +117,10 @@ class CreditsObject
         label.classes.add("creditsFormLabel");
         nameElement = new TextInputElement();
         nameElement.classes.add("creditsFormTextInput");
+        nameElement.onInput.listen((Event e) {
+            name = nameElement.value;
+            syncDataBox();
+        });
         subContainer.append(label);
         subContainer.append(nameElement);
     }
@@ -120,6 +133,11 @@ class CreditsObject
         label.classes.add("creditsFormLabel");
         dollStringElement = new TextAreaElement();
         dollStringElement.classes.add("creditsFormTextArea");
+        dollStringElement.onInput.listen((Event e) {
+            dollString = dollStringElement.value;
+            //TODO test this with a doll
+            syncDataBox();
+        });
         subContainer.append(label);
         subContainer.append(dollStringElement);
     }
@@ -131,6 +149,10 @@ class CreditsObject
         label.classes.add("creditsFormLabel");
         websiteElement = new TextInputElement();
         websiteElement.classes.add("creditsFormTextInput");
+        websiteElement.onInput.listen((Event e) {
+            website = websiteElement.value;
+            syncDataBox();
+        });
         subContainer.append(label);
         subContainer.append(websiteElement);
     }
@@ -142,6 +164,10 @@ class CreditsObject
         label.classes.add("creditsFormLabel");
         phraseElement = new TextAreaElement();
         phraseElement.classes.add("creditsFormTextArea");
+        phraseElement.onInput.listen((Event e) {
+            phrase = phraseElement.value;
+            syncDataBox();
+        });
         subContainer.append(label);
         subContainer.append(phraseElement);
     }
@@ -153,6 +179,10 @@ class CreditsObject
         label.classes.add("creditsFormLabel");
         whatYouDidElement = new TextAreaElement();
         whatYouDidElement.classes.add("creditsFormTextArea");
+        whatYouDidElement.onInput.listen((Event e) {
+            whatYouDid = whatYouDidElement.value;
+            syncDataBox();
+        });
         subContainer.append(label);
         subContainer.append(whatYouDidElement);
     }

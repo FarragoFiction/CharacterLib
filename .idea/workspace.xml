@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34771aea-564e-4b12-9b4b-737a144c6257" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/src/JSONObject.dart" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/CreditsObject.dart" afterPath="$PROJECT_DIR$/lib/src/CreditsObject.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,10 +28,10 @@
       <file leaf-file-name="CreditsObject.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/src/CreditsObject.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="83" column="49" lean-forward="false" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
+            <state relative-caret-position="200">
+              <caret line="182" column="22" lean-forward="false" selection-start-line="182" selection-start-column="22" selection-end-line="182" selection-end-column="22" />
               <folding>
-                <element signature="e#0#5369#0" expanded="true" />
+                <element signature="e#0#6372#0" expanded="true" />
                 <element signature="e#66#88#0" expanded="true" />
               </folding>
             </state>
@@ -603,10 +601,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/CreditsObject.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="83" column="49" lean-forward="false" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
+        <state relative-caret-position="200">
+          <caret line="182" column="22" lean-forward="false" selection-start-line="182" selection-start-column="22" selection-end-line="182" selection-end-column="22" />
           <folding>
-            <element signature="e#0#5369#0" expanded="true" />
+            <element signature="e#0#6372#0" expanded="true" />
             <element signature="e#66#88#0" expanded="true" />
           </folding>
         </state>
