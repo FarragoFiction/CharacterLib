@@ -47,6 +47,20 @@ class CharacterObject {
     void copyFromJSON(JSONObject json) {
         dollString = json["dollString"];
         name = json["name"];
+        String idontevenKnow = json["stats"];
+        loadStatsFromJSON(idontevenKnow);
+    }
+
+    void loadStatsFromJSON(String idontevenKnow) {
+        if(idontevenKnow == null) return;
+        List<dynamic> what = JSON.decode(idontevenKnow);
+        //print("what json is $what");
+        for(dynamic d in what) {
+            //print("dynamic json thing is  $d");
+            JSONObject j = new JSONObject();
+            j.json = d;
+            stats.add(new StatObject.fromJSONObject(j));
+        }
     }
 
     String toDataString() {
@@ -58,12 +72,25 @@ class CharacterObject {
         JSONObject json = new JSONObject();
         json["dollString"] = dollString;
         json["name"] = name;
+
+        List<JSONObject> jsonArray = new List<JSONObject>();
+        for(StatObject s in stats) {
+            //print("Saving ${p.name}");
+            jsonArray.add(s.toJSON());
+        }
+        json["stats"] = jsonArray.toString();
+
+
         return json;
     }
 
     void syncFormToObject() {
         nameElement.value = name;
         dollStringElement.value = dollString;
+
+        for(StatObject s in stats) {
+            s.syncFormToObject();
+        }
         syncDataBox();
     }
 
@@ -136,6 +163,10 @@ class CharacterObject {
         makeDataStringForm(header);
         makeNameForm(subContainer);
         makeDollForm(subContainer);
+
+        for(StatObject s in stats) {
+            s.makeForm(subContainer);
+        }
 
         syncFormToObject();
     }

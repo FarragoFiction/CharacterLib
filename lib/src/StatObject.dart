@@ -59,6 +59,10 @@ class StatObject {
 
     }
 
+    void syncFormToObject() {
+        rangeElement.value = "$value";
+    }
+
     void copyFromJSON(JSONObject json) {
         value = int.parse(json["value"]);
         namePositive = json["name"];
@@ -66,6 +70,10 @@ class StatObject {
 
     StatObject.fromDataString(String dataString){
         copyFromDataString(dataString);
+    }
+
+    StatObject.fromJSONObject(JSONObject json){
+        copyFromJSON(json);
     }
 
     void copyFromDataString(String dataString) {
