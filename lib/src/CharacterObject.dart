@@ -94,7 +94,7 @@ class CharacterObject {
             return "$name$labelPattern${BASE64URL.encode(ret.codeUnits)}";
         }catch(e) {
             print(e);
-            window.alert("Error Saving Data. Are there any special characters in there? ${validate()}$e");
+            window.alert("Error Saving Data. Are there any special characters in there? ${validate()} $e");
         }
     }
 
@@ -109,7 +109,7 @@ class CharacterObject {
     static String validateString(String s) {
         for(int i in s.codeUnits) {
             if(i>255) {
-                return "What character is ${new String.fromCharCode(i)}???";
+                return "What character is ${new String.fromCharCode(i)}  ???  (if it looks normal, it could be your word processor fucked it up. try deleting it and retyping it right in the form)";
             }
         }
         return null;

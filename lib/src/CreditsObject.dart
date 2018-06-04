@@ -129,7 +129,7 @@ class CreditsObject extends CharacterObject
         if(ret != null) return ret;
         ret = CharacterObject.validateString(phrase);
         if(ret != null) return ret;
-        return null;
+        return "Actually, nevermind,  it looks fine???";
     }
 
 
