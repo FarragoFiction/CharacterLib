@@ -21,7 +21,7 @@
 
 .labelRangeRight{
     display: inline-block;
-    width: 100px;
+    width: 50px;
     text-align:left;
     margin-left: 10px;
 }
@@ -29,7 +29,7 @@
 .creditsFormRangeInput {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 300px;
+    width: 325px;
     height: 25px; /* Specified height */
     background: #d3d3d3; /* Grey background */
     outline: none; /* Remove outline */
@@ -41,7 +41,7 @@
 .labelValueElement{
     margin-right: 10px;
     display: inline-block;
-    width: 100px;
+    width: 125px;
 }
 
 .creditsFormBox{

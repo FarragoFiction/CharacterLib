@@ -61,7 +61,13 @@ class CharacterObject {
             //print("dynamic json thing is  $d");
             JSONObject j = new JSONObject();
             j.json = d;
-            stats.add(new StatObject.fromJSONObject(j));
+            StatObject s = new StatObject.fromJSONObject(j);
+            //don't replace, just overwrite
+            for(StatObject s2 in stats) {
+                if(s.namePositive == s2.namePositive) {
+                    s2.value = s.value;
+                }
+            }
         }
     }
 
@@ -149,7 +155,9 @@ class CharacterObject {
     }
 
     void syncObjectToDataBox() {
+        print("going to sync object to data box");
         copyFromDataString(dataBoxElement.value);
+        print("going to sync form to data box");
         syncFormToObject();
     }
 
@@ -172,8 +180,10 @@ class CharacterObject {
     }
 
     void makeStatForm(Element subContainer) {
+        DivElement statDiv = new DivElement()..text = "Stats";
+        subContainer.append(statDiv);
         for(StatObject s in stats) {
-            s.makeForm(subContainer);
+            s.makeForm(statDiv);
         }
     }
 
