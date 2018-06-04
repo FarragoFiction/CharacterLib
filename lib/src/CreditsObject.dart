@@ -17,8 +17,13 @@ class CreditsObject
     void makeForm(Element container) {
         DivElement subContainer = new DivElement();
         subContainer.classes.add("creditsFormBox");
+
+        DivElement header = new DivElement()..text = "Credits Creator";
+        header.classes.add("creditsFormHeader");
+        subContainer.append(header);
+        
         container.append(subContainer);
-        makeDataStringForm(subContainer);
+        makeDataStringForm(header);
         makeNameForm(subContainer);
         makeDollForm(subContainer);
         makeWebsiteForm(subContainer);
@@ -29,12 +34,9 @@ class CreditsObject
     void makeDataStringForm(Element container) {
         DivElement subContainer = new DivElement();
         container.append(subContainer);
-        LabelElement label = new LabelElement()..text = "Copy This to Submit to JR or Uploader:";
-        label.classes.add("creditsFormLabel");
         TextAreaElement text = new TextAreaElement();
         text.classes.add("creditsFormTextArea");
         text.value = "TODO: SERIALIZE THIS OBJECT";
-        subContainer.append(label);
         subContainer.append(text);
     }
 

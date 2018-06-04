@@ -1,0 +1,48 @@
+
+.creditsFormHeader{
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-bottom: 3px solid black;
+    margin-bottom: 30px;
+}
+
+.creditsFormBox{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    border: 13px solid #3b3b3b;
+    border-radius: 15px;
+    background-color: #616161;
+    color: #00ff00;
+    width:650px;
+}
+
+.creditsFormLabel{
+    width: 300px;
+    display: inline-block;
+    border-bottom: 3px dotted black;
+}
+
+.creditsFormTextInput{
+    margin: 5px;
+    padding: 15px;
+    border: 3px solid #3b3b3b;
+    border-radius: 1px;
+    background-color: #919191;
+    color: #00ff00;
+    width: 150px;
+    align: bottom;
+}
+
+.creditsFormTextArea{
+    margin: 5px;
+    padding: 15px;
+    border: 3px solid #3b3b3b;
+    border-radius: 1px;
+    background-color: #919191;
+    color: #00ff00;
+    width: 300px;
+    height: 75px;
+}

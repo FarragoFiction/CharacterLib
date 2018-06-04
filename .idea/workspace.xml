@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34771aea-564e-4b12-9b4b-737a144c6257" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/styles.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/style.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/index.html" afterPath="$PROJECT_DIR$/example/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/CreditsObject.dart" afterPath="$PROJECT_DIR$/lib/src/CreditsObject.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,13 +30,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreditsObject.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CreditsObject.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/src/CreditsObject.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="18" column="48" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="48" />
+            <state relative-caret-position="151">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
-                <element signature="e#0#3835#0" expanded="true" />
+                <element signature="e#0#3816#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,27 +58,17 @@
         <entry file="file://$PROJECT_DIR$/example/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="57" lean-forward="false" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
+              <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/style.css">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="77" lean-forward="false" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
+            <state relative-caret-position="90">
+              <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -124,11 +119,12 @@
       <list>
         <option value="$PROJECT_DIR$/lib/CreditsLib.dart" />
         <option value="$PROJECT_DIR$/test/CreditsLib_test.dart" />
-        <option value="$PROJECT_DIR$/example/index.html" />
         <option value="$PROJECT_DIR$/example/main.dart" />
-        <option value="$PROJECT_DIR$/lib/src/CreditsObject.dart" />
-        <option value="$PROJECT_DIR$/example/style.css" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/example/style.css" />
+        <option value="$PROJECT_DIR$/example/index.html" />
+        <option value="$PROJECT_DIR$/example/styles.css" />
+        <option value="$PROJECT_DIR$/lib/src/CreditsObject.dart" />
       </list>
     </option>
   </component>
@@ -545,6 +541,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="77" lean-forward="false" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/example/main.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -555,37 +567,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/index.html">
+    <entry file="file://$PROJECT_DIR$/example/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="57" lean-forward="false" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
+        <state relative-caret-position="90">
+          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/CreditsObject.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="18" column="48" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="48" />
+        <state relative-caret-position="151">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
-            <element signature="e#0#3835#0" expanded="true" />
+            <element signature="e#0#3816#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="77" lean-forward="false" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
