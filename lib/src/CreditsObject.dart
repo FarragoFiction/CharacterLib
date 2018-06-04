@@ -1,9 +1,11 @@
 //knows how to draw a form to create this.
 //knows what dolls are
+import 'dart:convert';
 import "dart:html";
+import "JSONObject.dart";
 //TODO wire up forms
+//TODO load from data string
 //TODO slurp from text file
-//TODO SERAIALIZE THIS OBJECT
 class CreditsObject
 {
     String dollString;
@@ -11,6 +13,14 @@ class CreditsObject
     String website;
     String phrase;
     String whatYouDid;
+
+    TextAreaElement dataBoxElement;
+    TextAreaElement dollStringElement;
+    TextAreaElement phraseElement;
+    TextAreaElement whatYouDidElement;
+    TextInputElement nameElement;
+    TextInputElement websiteElement;
+
 
     CreditsObject({String this.name: "SomethingUnique" , String this.dollString, String this.website, String this.phrase: "I helped!!!", String this.whatYouDid: "I did a thing!!!"});
 
@@ -29,15 +39,66 @@ class CreditsObject
         makeDollForm(subContainer);
         makePhraseForm(subContainer);
         makeWhatYouDidForm(subContainer);
+
+        syncFormToObject();
+    }
+
+    CreditsObject.fromDataString(String dataString){
+        copyFromDataString(dataString);
+    }
+
+    void copyFromDataString(String dataString) {
+        String rawJson = new String.fromCharCodes(BASE64URL.decode(dataString));
+        JSONObject json = new JSONObject();
+        copyFromJSON(json);
+    }
+
+    void copyFromJSON(JSONObject json) {
+        dollString = json["dollString"];
+        name = json["name"];
+        website = json["website"];
+        phrase = json["phrase"];
+        whatYouDid = json["whatYouDid"];
+    }
+
+    String toDataString() {
+        String ret = toJSON().toString();
+        return BASE64URL.encode(ret.codeUnits);
+    }
+
+    JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        json["dollString"] = dollString;
+        json["name"] = name;
+        json["website"] = website;
+        json["phrase"] = phrase;
+        json["whatYouDid"] = whatYouDid;
+        return json;
+    }
+
+    void syncDataBox() {
+        dataBoxElement.value = toDataString();
+    }
+
+    void syncObjectToDataBox() {
+        copyFromDataString(dataBoxElement.value);
+    }
+
+    void syncFormToObject() {
+        nameElement.value = name;
+        websiteElement.value = website;
+        phraseElement.value = phrase;
+        whatYouDidElement.value = whatYouDid;
+        dollStringElement.value = dollString;
+        syncDataBox();
     }
 
     void makeDataStringForm(Element container) {
         DivElement subContainer = new DivElement();
         container.append(subContainer);
-        TextAreaElement text = new TextAreaElement();
-        text.classes.add("creditsFormTextArea");
-        text.value = "TODO: SERIALIZE THIS OBJECT";
-        subContainer.append(text);
+        dataBoxElement = new TextAreaElement();
+        dataBoxElement.classes.add("creditsFormTextArea");
+        subContainer.append(dataBoxElement);
     }
 
     void makeNameForm(Element container) {
@@ -45,11 +106,10 @@ class CreditsObject
         container.append(subContainer);
         LabelElement label = new LabelElement()..text = "Your Name:";
         label.classes.add("creditsFormLabel");
-        TextInputElement text = new TextInputElement();
-        text.classes.add("creditsFormTextInput");
-        text.value = name;
+        nameElement = new TextInputElement();
+        nameElement.classes.add("creditsFormTextInput");
         subContainer.append(label);
-        subContainer.append(text);
+        subContainer.append(nameElement);
     }
 
     //todo validate doll
@@ -58,11 +118,10 @@ class CreditsObject
         container.append(subContainer);
         LabelElement label = new LabelElement()..text = "Your Avatar DollString:";
         label.classes.add("creditsFormLabel");
-        TextAreaElement text = new TextAreaElement();
-        text.classes.add("creditsFormTextArea");
-        text.value = dollString;
+        dollStringElement = new TextAreaElement();
+        dollStringElement.classes.add("creditsFormTextArea");
         subContainer.append(label);
-        subContainer.append(text);
+        subContainer.append(dollStringElement);
     }
 
     void makeWebsiteForm(Element container) {
@@ -70,11 +129,10 @@ class CreditsObject
         container.append(subContainer);
         LabelElement label = new LabelElement()..text = "Your Website(optional):";
         label.classes.add("creditsFormLabel");
-        TextInputElement text = new TextInputElement();
-        text.classes.add("creditsFormTextInput");
-        text.value = website;
+        websiteElement = new TextInputElement();
+        websiteElement.classes.add("creditsFormTextInput");
         subContainer.append(label);
-        subContainer.append(text);
+        subContainer.append(websiteElement);
     }
 
     void makePhraseForm(Element container) {
@@ -82,11 +140,10 @@ class CreditsObject
         container.append(subContainer);
         LabelElement label = new LabelElement()..text = "Associated Phrase (for Walkaround Game):";
         label.classes.add("creditsFormLabel");
-        TextAreaElement text = new TextAreaElement();
-        text.classes.add("creditsFormTextArea");
-        text.value = phrase;
+        phraseElement = new TextAreaElement();
+        phraseElement.classes.add("creditsFormTextArea");
         subContainer.append(label);
-        subContainer.append(text);
+        subContainer.append(phraseElement);
     }
 
     void makeWhatYouDidForm(Element container) {
@@ -94,10 +151,9 @@ class CreditsObject
         container.append(subContainer);
         LabelElement label = new LabelElement()..text = "What You Did:";
         label.classes.add("creditsFormLabel");
-        TextAreaElement text = new TextAreaElement();
-        text.classes.add("creditsFormTextArea");
-        text.value = whatYouDid;
+        whatYouDidElement = new TextAreaElement();
+        whatYouDidElement.classes.add("creditsFormTextArea");
         subContainer.append(label);
-        subContainer.append(text);
+        subContainer.append(whatYouDidElement);
     }
 }
