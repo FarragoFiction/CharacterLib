@@ -12,3 +12,7 @@ environment:
 
 dev_dependencies:
   test: ^0.12.0
+  RenderingLib:
+      git: git://github.com/jadedResearcher/RenderingLib.git
+  DollLibCorrect:
+      git:  git://github.com/jadedResearcher/DollLibCorrect.git

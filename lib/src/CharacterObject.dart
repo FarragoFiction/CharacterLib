@@ -1,8 +1,9 @@
 import 'dart:convert';
 import "dart:html";
 import "JSONObject.dart";
-
-import 'package:CreditsLib/src/CharacterObject.dart';
+import "package:RenderingLib/RendereringLib.dart";
+import 'package:DollLibCorrect/DollRenderer.dart';
+import 'package:CreditsLib/src/StatObject.dart';
 class CharacterObject {
     String dollString;
     String name;
@@ -11,11 +12,30 @@ class CharacterObject {
     TextAreaElement dataBoxElement;
     TextAreaElement dollStringElement;
     TextInputElement nameElement;
+    List<StatObject> stats = new List<StatObject>();
+
 
     CharacterObject(String this.name, String this.dollString);
 
+    int get seed {
+        return 13;
+    }
+
     CharacterObject.fromDataString(String dataString){
         copyFromDataString(dataString);
+    }
+
+
+
+    void initializeStats() {
+        stats.clear();
+        Random rand = new Random(seed);
+        stats.add(new StatObject(this, StatObject.PATIENCE,StatObject.IMPATIENCE,rand.nextIntRange(StatObject.MINVALUE, StatObject.MAXVALUE)));
+        stats.add(new StatObject(this, StatObject.ENERGETIC,StatObject.CALM,rand.nextIntRange(StatObject.MINVALUE, StatObject.MAXVALUE)));
+        stats.add(new StatObject(this, StatObject.IDEALISTIC,StatObject.REALISTIC,rand.nextIntRange(StatObject.MINVALUE, StatObject.MAXVALUE)));
+        stats.add(new StatObject(this, StatObject.CURIOUS,StatObject.ACCEPTING,rand.nextIntRange(StatObject.MINVALUE, StatObject.MAXVALUE)));
+        stats.add(new StatObject(this, StatObject.LOYAL,StatObject.FREE,rand.nextIntRange(StatObject.MINVALUE, StatObject.MAXVALUE)));
+        stats.add(new StatObject(this, StatObject.EXTERNAL,StatObject.INTERNAL,rand.nextIntRange(StatObject.MINVALUE, StatObject.MAXVALUE)));
     }
 
     void copyFromDataString(String dataString) {
