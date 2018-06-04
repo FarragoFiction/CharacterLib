@@ -3,27 +3,32 @@
 import 'dart:convert';
 import "dart:html";
 import "JSONObject.dart";
+
+import 'package:CreditsLib/src/CharacterObject.dart';
 //TODO let them pick between 113 and -113 for wiggler sim stats.
 //TODO load from data string
 //TODO slurp from text file
-class CreditsObject
+class CreditsObject extends CharacterObject
 {
-    String dollString;
-    String name;
     String website;
     String phrase;
     String whatYouDid;
 
-    TextAreaElement dataBoxElement;
-    TextAreaElement dollStringElement;
     TextAreaElement phraseElement;
     TextAreaElement whatYouDidElement;
-    TextInputElement nameElement;
     TextInputElement websiteElement;
 
 
-    CreditsObject({String this.name: "SomethingUnique" , String this.dollString, String this.website, String this.phrase: "I helped!!!", String this.whatYouDid: "I did a thing!!!"});
 
+
+
+
+    CreditsObject(String name, String dollString):super(name, dollString);
+
+    CreditsObject.fromDataString(String dataString):super("",""){
+        copyFromDataString(dataString);
+    }
+    @override
     void makeForm(Element container) {
         DivElement subContainer = new DivElement();
         subContainer.classes.add("creditsFormBox");
@@ -31,7 +36,7 @@ class CreditsObject
         DivElement header = new DivElement()..text = "Credits Creator";
         header.classes.add("creditsFormHeader");
         subContainer.append(header);
-        
+
         container.append(subContainer);
         makeDataStringForm(header);
         makeNameForm(subContainer);
@@ -43,104 +48,33 @@ class CreditsObject
         syncFormToObject();
     }
 
-    CreditsObject.fromDataString(String dataString){
-        copyFromDataString(dataString);
-    }
-
-    void copyFromDataString(String dataString) {
-        String rawJson = new String.fromCharCodes(BASE64URL.decode(dataString));
-        JSONObject json = new JSONObject.fromJSONString(rawJson);
-        copyFromJSON(json);
-    }
-
+    @override
     void copyFromJSON(JSONObject json) {
-        dollString = json["dollString"];
-        name = json["name"];
+        super.copyFromJSON(json);
         website = json["website"];
         phrase = json["phrase"];
         whatYouDid = json["whatYouDid"];
     }
 
-    String toDataString() {
-        String ret = toJSON().toString();
-        return BASE64URL.encode(ret.codeUnits);
-    }
 
     JSONObject toJSON() {
-        JSONObject json = new JSONObject();
-        json["dollString"] = dollString;
-        json["name"] = name;
+        JSONObject json = super.toJSON();
         json["website"] = website;
         json["phrase"] = phrase;
         json["whatYouDid"] = whatYouDid;
         return json;
     }
 
-    void syncDataBox() {
-        dataBoxElement.value = toDataString();
-    }
-
-    void syncObjectToDataBox() {
-        copyFromDataString(dataBoxElement.value);
-        syncFormToObject();
-    }
-
+    @override
     void syncFormToObject() {
-        nameElement.value = name;
+        super.syncFormToObject();
         websiteElement.value = website;
         phraseElement.value = phrase;
         whatYouDidElement.value = whatYouDid;
-        dollStringElement.value = dollString;
         syncDataBox();
     }
 
-    void makeDataStringForm(Element container) {
-        DivElement subContainer = new DivElement();
-        container.append(subContainer);
-        dataBoxElement = new TextAreaElement();
-        dataBoxElement.classes.add("creditsFormTextArea");
-        dataBoxElement.onChange.listen((e) {
-            try {
-                syncObjectToDataBox();
-            }catch(e) {
-                print(e);
-                window.alert("error parsing data string, $e");
-            }
-        });
-        subContainer.append(dataBoxElement);
-    }
 
-    void makeNameForm(Element container) {
-        DivElement subContainer = new DivElement();
-        container.append(subContainer);
-        LabelElement label = new LabelElement()..text = "Your Name:";
-        label.classes.add("creditsFormLabel");
-        nameElement = new TextInputElement();
-        nameElement.classes.add("creditsFormTextInput");
-        nameElement.onInput.listen((Event e) {
-            name = nameElement.value;
-            syncDataBox();
-        });
-        subContainer.append(label);
-        subContainer.append(nameElement);
-    }
-
-    //todo validate doll
-    void makeDollForm(Element container) {
-        DivElement subContainer = new DivElement();
-        container.append(subContainer);
-        LabelElement label = new LabelElement()..text = "Your Avatar DollString:";
-        label.classes.add("creditsFormLabel");
-        dollStringElement = new TextAreaElement();
-        dollStringElement.classes.add("creditsFormTextArea");
-        dollStringElement.onInput.listen((Event e) {
-            dollString = dollStringElement.value;
-            //TODO test this with a doll
-            syncDataBox();
-        });
-        subContainer.append(label);
-        subContainer.append(dollStringElement);
-    }
 
     void makeWebsiteForm(Element container) {
         DivElement subContainer = new DivElement();

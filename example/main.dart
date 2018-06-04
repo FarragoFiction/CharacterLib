@@ -1,11 +1,11 @@
 
 
 import "dart:html";
-import "package:CreditsLib/CreditsLib.dart";
+import "package:CreditsLib/CharacterLib.dart";
 
 Element content = querySelector("#content");
 
 void main() {
-    CreditsObject co = new CreditsObject();
+    CreditsObject co = new CreditsObject("SomethingMemorable","");
     co.makeForm(content);
 }

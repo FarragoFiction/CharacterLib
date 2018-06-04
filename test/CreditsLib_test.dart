@@ -1,4 +1,4 @@
-import 'package:CreditsLib/CreditsLib.dart';
+import 'package:CreditsLib/CharacterLib.dart';
 import 'package:test/test.dart';
 
 void main() {
