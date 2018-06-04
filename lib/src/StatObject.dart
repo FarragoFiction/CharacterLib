@@ -42,6 +42,7 @@ class StatObject {
         valueElement = new LabelElement();
         valueElement.classes.add("labelValueElement");
         LabelElement labelNeg = new LabelElement()..text = nameNegative;
+        labelNeg.classes.add("labelRangeLeft");
 
         rangeElement = new InputElement();
         rangeElement.type = "range";
@@ -56,6 +57,8 @@ class StatObject {
         });
 
         LabelElement labelPos = new LabelElement()..text = namePositive;
+        labelPos.classes.add("labelRangeRight");
+
         subContainer.append(valueElement);
         subContainer.append(labelNeg);
         subContainer.append(rangeElement);

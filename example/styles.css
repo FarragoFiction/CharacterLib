@@ -12,8 +12,36 @@
     .padding: 10px;
 }
 
+.labelRangeLeft{
+    display: inline-block;
+    width: 100px;
+    text-align:right;
+    margin-right: 10px;
+}
+
+.labelRangeRight{
+    display: inline-block;
+    width: 100px;
+    text-align:left;
+    margin-left: 10px;
+}
+
+.creditsFormRangeInput {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 300px;
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
 .labelValueElement{
     margin-right: 10px;
+    display: inline-block;
+    width: 100px;
 }
 
 .creditsFormBox{
