@@ -214,9 +214,23 @@ class CreditsObject extends CharacterObject
         subContainer.append(whatYouDidElement);
     }
 
-    static Future<List<CreditsObject>> slurpCredits() async{
+    static Future<List<CreditsObject>> slurpAllCredits() async{
+        List<CreditsObject> ret = new List<CreditsObject>();
+        List<CreditsObject> aaa = await slurpCredits("aaa");
+        List<CreditsObject> wranglers = await slurpCredits("wranglers");
+        List<CreditsObject> pioneers = await slurpCredits("pioneers");
+        List<CreditsObject> credits = await slurpCredits("credits");
+        ret.addAll(aaa);
+        ret.addAll(wranglers);
+        ret.addAll(pioneers);
+        ret.addAll(credits);
+        return ret;
+    }
+
+
+    static Future<List<CreditsObject>> slurpCredits(String filename) async{
         print("loading credits");
-        String url = "Credits/credits.txt";
+        String url = "Credits/${filename}.txt";
         if(!window.location.href.contains("localhost")) url = "http://farragofiction.com/CreditsSource/credits.txt";
         String data = await Loader.getResource(url);
         List<String> creditsFromFile = data.split("\n");

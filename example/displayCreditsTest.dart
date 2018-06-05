@@ -11,7 +11,7 @@ Element content = querySelector("#content");
 Future<Null> main() async {
     await Loader.preloadManifest();
 
-    List<CreditsObject> credits = await CreditsObject.slurpCredits();
+    List<CreditsObject> credits = await CreditsObject.slurpAllCredits();
     CreditsObject.drawCredits(credits, content);
 
 
