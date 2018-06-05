@@ -235,9 +235,9 @@ class CreditsObject extends CharacterObject
 
 
     static Future<List<CreditsObject>> slurpCredits(String filename, String title) async{
-        print("loading credits");
+        print("loading $filename");
         String url = "Credits/${filename}.txt";
-        if(!window.location.href.contains("localhost")) url = "http://farragofiction.com/CreditsSource/credits.txt";
+        if(!window.location.href.contains("localhost")) url = "http://farragofiction.com/CreditsSource/${filename}.txt";
         String data = await Loader.getResource(url);
         List<String> creditsFromFile = data.split("\n");
         List<CreditsObject> ret = new List<CreditsObject>();
