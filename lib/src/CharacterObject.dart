@@ -25,7 +25,11 @@ class CharacterObject {
 
     CharacterObject(String this.name, String this.dollString) {
         initializeStats();
-        doll = Doll.randomDollOfType(1);
+        if(dollString != null && dollString.isNotEmpty) {
+            doll = Doll.loadSpecificDoll(dollString);
+        }else {
+            doll = Doll.randomDollOfType(1);
+        }
     }
 
     int get seed {
