@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34771aea-564e-4b12-9b4b-737a144c6257" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/Credits/aaa.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/Credits/pioneers.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/Credits/wranglers.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/Credits/credits.txt" afterPath="$PROJECT_DIR$/example/Credits/credits.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/displayCreditsTest.dart" afterPath="$PROJECT_DIR$/example/displayCreditsTest.dart" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/CreditsObject.dart" afterPath="$PROJECT_DIR$/lib/src/CreditsObject.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/Credits/pioneers.txt" afterPath="$PROJECT_DIR$/example/Credits/pioneers.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,11 +58,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pioneers.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pioneers.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/example/Credits/pioneers.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testCredits.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/testCredits.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -84,7 +88,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="displayCreditsTest.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="displayCreditsTest.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/displayCreditsTest.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -102,28 +116,6 @@
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatObject.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/src/StatObject.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="76" column="41" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/styles.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="56" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -190,11 +182,11 @@
         <option value="$PROJECT_DIR$/lib/src/StatObject.dart" />
         <option value="$PROJECT_DIR$/lib/src/CharacterObject.dart" />
         <option value="$PROJECT_DIR$/example/Credits/credits.txt" />
-        <option value="$PROJECT_DIR$/example/Credits/pioneers.txt" />
         <option value="$PROJECT_DIR$/example/Credits/aaa.txt" />
         <option value="$PROJECT_DIR$/example/Credits/wranglers.txt" />
         <option value="$PROJECT_DIR$/lib/src/CreditsObject.dart" />
         <option value="$PROJECT_DIR$/example/displayCreditsTest.dart" />
+        <option value="$PROJECT_DIR$/example/Credits/pioneers.txt" />
       </list>
     </option>
   </component>
@@ -753,6 +745,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -842,6 +835,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -903,25 +897,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/Credits/farragotransfer.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="152" lean-forward="false" selection-start-line="1" selection-start-column="152" selection-end-line="1" selection-end-column="152" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/testCredits.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -980,14 +959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/Credits/pioneers.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/Credits/credits.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1019,6 +990,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="13" column="69" lean-forward="false" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/testCredits.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/Credits/pioneers.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
