@@ -87,6 +87,27 @@ class CreditsObject extends CharacterObject
 
     void syncCredits() {
         creditsContainer.setInnerHtml("");
+
+        DivElement charDollLabel = new DivElement()..text = "Character:";
+        charDollLabel.classes.add("creditsLine");
+
+        TextAreaElement charBox = new TextAreaElement();
+        charBox.value = toDataString();
+        charBox.classes.add("creditsTextArea");
+
+        creditsContainer.append(charDollLabel);
+        creditsContainer.append(charBox);
+
+        DivElement labelDoll = new DivElement()..text = "Doll:";
+        labelDoll.classes.add("creditsLine");
+
+        TextAreaElement dollBox = new TextAreaElement();
+        dollBox.value = doll.toDataBytesX();
+        dollBox.classes.add("creditsTextArea");
+
+        creditsContainer.append(labelDoll);
+        creditsContainer.append(dollBox);
+
         DivElement phraseContainer = new DivElement()..setInnerHtml("<b>Phrase:</b> $phrase");
         phraseContainer.classes.add("creditsLine");
         creditsContainer.append(phraseContainer);
