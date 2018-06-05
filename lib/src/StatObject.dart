@@ -73,7 +73,9 @@ class StatObject {
 
     void copyFromJSON(JSONObject json) {
         value = int.parse(json["value"]);
-        namePositive = json["name"];
+        namePositive = json["namePositive"];
+        nameNegative = json["nameNegative"];
+
     }
 
     StatObject.fromDataString(String dataString){

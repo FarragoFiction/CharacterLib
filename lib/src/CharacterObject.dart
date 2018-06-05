@@ -87,8 +87,11 @@ class CharacterObject {
             StatObject s = new StatObject.fromJSONObject(j);
             //don't replace, just overwrite
             for(StatObject s2 in stats) {
+                print("comparing s ${s.namePositive} and s2 of ${s2.namePositive}");
                 if(s.namePositive == s2.namePositive) {
+                    print("setting one of my stats to ${s.value}");
                     s2.value = s.value;
+                    break;
                 }
             }
         }
