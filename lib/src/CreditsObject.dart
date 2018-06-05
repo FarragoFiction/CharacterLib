@@ -1,10 +1,12 @@
 //knows how to draw a form to create this.
 //knows what dolls are
+import 'dart:async';
 import 'dart:convert';
 import "dart:html";
 import "JSONObject.dart";
 
 import 'package:CreditsLib/src/CharacterObject.dart';
+import 'package:DollLibCorrect/DollRenderer.dart';
 //TODO let them pick between 113 and -113 for wiggler sim stats.
 //TODO load from data string
 //TODO slurp from text file
@@ -24,6 +26,7 @@ class CreditsObject extends CharacterObject
     CreditsObject(String name, String dollString):super(name, dollString);
 
     CreditsObject.fromDataString(String dataString):super("",""){
+        print("trying to make a new Credits Object from $dataString");
         copyFromDataString(dataString);
     }
     @override
@@ -103,6 +106,7 @@ class CreditsObject extends CharacterObject
 
     @override
     void copyFromJSON(JSONObject json) {
+        print("copying from json");
         super.copyFromJSON(json);
         website = json["website"];
         phrase = json["phrase"];
@@ -187,5 +191,26 @@ class CreditsObject extends CharacterObject
         });
         subContainer.append(label);
         subContainer.append(whatYouDidElement);
+    }
+
+    static Future<List<CreditsObject>> slurpCredits() async{
+        print("loading credits");
+        String url = "Credits/credits.txt";
+        if(!window.location.href.contains("localhost")) url = "http://farragofiction.com/CreditsSource/credits.txt";
+        String data = await Loader.getResource(url);
+        List<String> creditsFromFile = data.split("\n");
+        List<CreditsObject> ret = new List<CreditsObject>();
+        for(String s in creditsFromFile) {
+            print("processing $s");
+            if(s.isNotEmpty) ret.add(new CreditsObject.fromDataString(s));
+        }
+
+        return ret;
+    }
+
+    static void drawCredits(List<CreditsObject> credits, Element container) {
+        for (CreditsObject c in credits) {
+            c.makeBox(container);
+        }
     }
 }

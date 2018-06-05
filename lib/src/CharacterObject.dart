@@ -31,8 +31,11 @@ class CharacterObject {
     int get seed {
         if(doll != null) {
             return doll.seed;
-        }else {
+        }else if(name != null && name.isNotEmpty){
             return name.codeUnitAt(0);
+        }else {
+            print("can't do random, just doing seed of 13");
+            return 13;
         }
     }
 
@@ -54,7 +57,9 @@ class CharacterObject {
     }
 
     void copyFromDataString(String dataString) {
+        print("dataString is $dataString");
         List<String> parts = dataString.split("$labelPattern");
+        print("parts are $parts");
         if(parts.length > 1) {
             dataString = parts[1];
         }
@@ -65,6 +70,7 @@ class CharacterObject {
 
     void copyFromJSON(JSONObject json) {
         dollString = json["dollString"];
+        doll = Doll.loadSpecificDoll(dollString);
         name = json["name"];
         String idontevenKnow = json["stats"];
         loadStatsFromJSON(idontevenKnow);
@@ -134,7 +140,7 @@ class CharacterObject {
 
     void syncFormToObject() {
         nameElement.value = name;
-        dollString = doll.toDataBytesX();
+        if(doll != null) dollString = doll.toDataBytesX();
         dollStringElement.value = dollString;
 
         for(StatObject s in stats) {
@@ -204,7 +210,7 @@ class CharacterObject {
         print("going to sync object to data box");
         copyFromDataString(dataBoxElement.value);
         print("going to sync form to data box");
-        if(doll.toDataBytesX() != dollString) {
+        if(doll != null && doll.toDataBytesX() != dollString) {
             doll = Doll.loadSpecificDoll(dollString);
         }
         syncViewerToDoll();
