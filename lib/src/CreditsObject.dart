@@ -15,6 +15,8 @@ class CreditsObject extends CharacterObject
     String website = "";
     String phrase = "I helped!!!";
     String whatYouDid = "I did a thing!!!";
+    //not stored in json at all. just deal with it.
+    String title;
 
     TextAreaElement phraseElement;
     TextAreaElement whatYouDidElement;
@@ -87,6 +89,10 @@ class CreditsObject extends CharacterObject
 
     void syncCredits() {
         creditsContainer.setInnerHtml("");
+
+        DivElement titleLabel = new DivElement()..setInnerHtml("<h1>$name ($title)</h1>");
+        titleLabel.classes.add("creditsLine");
+        creditsContainer.append(titleLabel);
 
         DivElement charDollLabel = new DivElement()..text = "Character:";
         charDollLabel.classes.add("creditsLine");
@@ -216,10 +222,10 @@ class CreditsObject extends CharacterObject
 
     static Future<List<CreditsObject>> slurpAllCredits() async{
         List<CreditsObject> ret = new List<CreditsObject>();
-        List<CreditsObject> aaa = await slurpCredits("aaa");
-        List<CreditsObject> wranglers = await slurpCredits("wranglers");
-        List<CreditsObject> pioneers = await slurpCredits("pioneers");
-        List<CreditsObject> credits = await slurpCredits("credits");
+        List<CreditsObject> aaa = await slurpCredits("aaa", "A Rank");
+        List<CreditsObject> wranglers = await slurpCredits("wranglers", "Wrangler");
+        List<CreditsObject> pioneers = await slurpCredits("pioneers", "Pioneer");
+        List<CreditsObject> credits = await slurpCredits("credits", "Buckaroo");
         ret.addAll(aaa);
         ret.addAll(wranglers);
         ret.addAll(pioneers);
@@ -228,7 +234,7 @@ class CreditsObject extends CharacterObject
     }
 
 
-    static Future<List<CreditsObject>> slurpCredits(String filename) async{
+    static Future<List<CreditsObject>> slurpCredits(String filename, String title) async{
         print("loading credits");
         String url = "Credits/${filename}.txt";
         if(!window.location.href.contains("localhost")) url = "http://farragofiction.com/CreditsSource/credits.txt";
@@ -237,7 +243,7 @@ class CreditsObject extends CharacterObject
         List<CreditsObject> ret = new List<CreditsObject>();
         for(String s in creditsFromFile) {
             print("processing $s");
-            if(s.isNotEmpty) ret.add(new CreditsObject.fromDataString(s));
+            if(s.isNotEmpty) ret.add(new CreditsObject.fromDataString(s)..title = title);
         }
 
         return ret;
