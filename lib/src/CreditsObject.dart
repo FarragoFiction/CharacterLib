@@ -249,9 +249,15 @@ class CreditsObject extends CharacterObject
         return ret;
     }
 
-    static void drawCredits(List<CreditsObject> credits, Element container) {
+    static Future<Null> drawCredits(List<CreditsObject> credits, Element container) async{
         for (CreditsObject c in credits) {
-            c.makeBox(container);
+            await drawOneBox(c, container);
         }
+    }
+
+    static Future<Null> drawOneBox(CreditsObject c, Element container) async {
+        c.makeBox(container);
+        await new Future.delayed(const Duration(milliseconds : 500));
+
     }
 }
