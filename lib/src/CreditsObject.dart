@@ -90,7 +90,7 @@ class CreditsObject extends CharacterObject
     void syncCredits() {
         creditsContainer.setInnerHtml("");
 
-        DivElement titleLabel = new DivElement()..setInnerHtml("<h1>$name ($title)</h1>");
+        DivElement titleLabel = new DivElement()..setInnerHtml("<h3>$name ($title)</h3>");
         titleLabel.classes.add("creditsLine");
         creditsContainer.append(titleLabel);
 
