@@ -7,7 +7,7 @@ import 'package:CreditsLib/src/CharacterObject.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 
 Element content = querySelector("#content");
-
+//oh god //
 Future<Null> main() async{
     await Loader.preloadManifest();
     CreditsObject co = new CreditsObject("SomethingMemorable","");
