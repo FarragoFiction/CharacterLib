@@ -13,6 +13,6 @@ environment:
 dev_dependencies:
   test: ^0.12.0
   RenderingLib:
-      git: git://github.com/jadedResearcher/RenderingLib.git
+      git: git://github.com/FarragoFiction/RenderingLib.git
   DollLibCorrect:
-      git:  git://github.com/jadedResearcher/DollLibCorrect.git
+      git:  git://github.com/FarragoFiction/DollLibCorrect.git
