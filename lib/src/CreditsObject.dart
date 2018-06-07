@@ -239,7 +239,7 @@ class CreditsObject extends CharacterObject
         String url = "Credits/${filename}.txt";
         if(!window.location.href.contains("localhost")) url = "http://farragofiction.com/CreditsSource/${filename}.txt";
         String data = await Loader.getResource(url);
-        List<String> creditsFromFile = data.split("\n");
+        List<String> creditsFromFile = data.split(new RegExp("\n|\r"));
         List<CreditsObject> ret = new List<CreditsObject>();
         for(String s in creditsFromFile) {
             print("processing $s");
