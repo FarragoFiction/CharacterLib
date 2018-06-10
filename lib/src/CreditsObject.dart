@@ -123,8 +123,11 @@ class CreditsObject extends CharacterObject
         creditsContainer.append(taskContainer);
 
         if(website != null && website.isNotEmpty) {
+            if(!website.contains("http")){
+                website = "http://$website";
+            }
             AnchorElement websiteContainer = new AnchorElement(href: "$website")
-                ..text = "Check Out My Website: $website";
+                ..text = "Check Out My Website: $website"..target="_blank";
             websiteContainer.classes.add("creditsLine");
 
             creditsContainer..append(websiteContainer);
