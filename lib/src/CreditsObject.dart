@@ -246,7 +246,12 @@ class CreditsObject extends CharacterObject
         List<CreditsObject> ret = new List<CreditsObject>();
         for(String s in creditsFromFile) {
             print("processing $s");
-            if(s.isNotEmpty) ret.add(new CreditsObject.fromDataString(s)..title = title);
+            try {
+                if (s.isNotEmpty) ret.add(
+                    new CreditsObject.fromDataString(s)..title = title);
+            }catch(e) {
+                print("error parsing $s");
+            }
         }
 
         return ret;
