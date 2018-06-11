@@ -136,7 +136,7 @@ class CreditsObject extends CharacterObject
 
     @override
     void copyFromJSON(JSONObject json) {
-        print("copying from json");
+       // print("copying from json");
         super.copyFromJSON(json);
         website = json["website"];
         phrase = json["phrase"];
@@ -149,7 +149,7 @@ class CreditsObject extends CharacterObject
         json["website"] = website;
         json["phrase"] = phrase;
         json["whatYouDid"] = whatYouDid;
-        print(phrase.codeUnits);
+       // print(phrase.codeUnits);
         return json;
     }
 
@@ -245,7 +245,7 @@ class CreditsObject extends CharacterObject
         List<String> creditsFromFile = data.split(new RegExp("\n|\r"));
         List<CreditsObject> ret = new List<CreditsObject>();
         for(String s in creditsFromFile) {
-            print("processing $s");
+            //print("processing $s");
             try {
                 if (s.isNotEmpty) ret.add(
                     new CreditsObject.fromDataString(s)..title = title);

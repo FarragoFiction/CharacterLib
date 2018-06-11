@@ -67,6 +67,7 @@ class CharacterObject {
         if(parts.length > 1) {
             dataString = parts[1];
         }
+
         String rawJson = new String.fromCharCodes(BASE64URL.decode(dataString));
         JSONObject json = new JSONObject.fromJSONString(rawJson);
         copyFromJSON(json);
