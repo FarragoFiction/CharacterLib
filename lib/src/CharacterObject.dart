@@ -61,9 +61,9 @@ class CharacterObject {
     }
 
     void copyFromDataString(String dataString) {
-        print("dataString is $dataString");
+        //print("dataString is $dataString");
         List<String> parts = dataString.split("$labelPattern");
-        print("parts are $parts");
+        //print("parts are $parts");
         if(parts.length > 1) {
             dataString = parts[1];
         }
@@ -91,9 +91,9 @@ class CharacterObject {
             StatObject s = new StatObject.fromJSONObject(j);
             //don't replace, just overwrite
             for(StatObject s2 in stats) {
-                print("comparing s ${s.namePositive} and s2 of ${s2.namePositive}");
+               // print("comparing s ${s.namePositive} and s2 of ${s2.namePositive}");
                 if(s.namePositive == s2.namePositive) {
-                    print("setting one of my stats to ${s.value}");
+                   // print("setting one of my stats to ${s.value}");
                     s2.value = s.value;
                     break;
                 }
