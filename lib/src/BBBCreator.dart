@@ -1,10 +1,16 @@
 import 'dart:async';
 import 'dart:html';
 import 'package:CreditsLib/src/CreditsObject.dart';
+import 'package:RenderingLib/src/loader/loader.dart';
 
 class BBBCreator extends CreditsObject
 {
   BBBCreator(String name, String dollString) : super(name, dollString);
+
+  BBBCreator.fromDataString(String dataString):super("",""){
+      print("trying to make a new BBB Credits Object from $dataString");
+      copyFromDataString(dataString);
+  }
 
   @override
   String phrase = "I hope I win!!!";
@@ -97,8 +103,28 @@ class BBBCreator extends CreditsObject
 
   static Future<List<CreditsObject>> slurpAllCredits() async{
       List<CreditsObject> ret = new List<CreditsObject>();
-      List<CreditsObject> aaa = await CreditsObject.slurpCredits("entrants", "Entrant");
+      List<CreditsObject> aaa = await slurpCredits("entrants", "Entrant");
       ret.addAll(aaa);
+
+      return ret;
+  }
+
+  static Future<List<CreditsObject>> slurpCredits(String filename, String title) async{
+      print("loading $filename");
+      String url = "Credits/${filename}.txt";
+      if(!window.location.href.contains("localhost")) url = "http://farragofiction.com/CreditsSource/${filename}.txt";
+      String data = await Loader.getResource(url);
+      List<String> creditsFromFile = data.split(new RegExp("\n|\r"));
+      List<CreditsObject> ret = new List<CreditsObject>();
+      for(String s in creditsFromFile) {
+          //print("processing $s");
+          try {
+              if (s.isNotEmpty) ret.add(
+                  new BBBCreator.fromDataString(s)..title = title);
+          }catch(e) {
+              print("error parsing $s");
+          }
+      }
 
       return ret;
   }
