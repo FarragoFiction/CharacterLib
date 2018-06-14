@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:html';
 import 'package:CreditsLib/src/CreditsObject.dart';
 
@@ -92,6 +93,14 @@ class BBBCreator extends CreditsObject
       });
       subContainer.append(label);
       subContainer.append(whatYouDidElement);
+  }
+
+  static Future<List<CreditsObject>> slurpAllCredits() async{
+      List<CreditsObject> ret = new List<CreditsObject>();
+      List<CreditsObject> aaa = await CreditsObject.slurpCredits("entrants", "Entrant");
+      ret.addAll(aaa);
+
+      return ret;
   }
 
 }
