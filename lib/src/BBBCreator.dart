@@ -23,7 +23,7 @@ class BBBCreator extends CreditsObject
   void syncCredits() {
       creditsContainer.setInnerHtml("");
 
-      DivElement titleLabel = new DivElement()..setInnerHtml("<h3>$name ($title)</h3>");
+      AnchorElement titleLabel = new AnchorElement(href: "?target=${name.replaceAll(' ', '_')}")..setInnerHtml("<h3>$name ($title)</h3>");
       titleLabel.classes.add("creditsLine");
       creditsContainer.append(titleLabel);
 
