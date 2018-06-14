@@ -101,21 +101,31 @@ class BBBCreator extends CreditsObject
       subContainer.append(whatYouDidElement);
   }
 
-  static Future<List<CreditsObject>> slurpAllCredits() async{
-      List<CreditsObject> ret = new List<CreditsObject>();
-      List<CreditsObject> aaa = await slurpCredits("entrants", "Entrant");
+  static List<BBBCreator> filterBy(List<BBBCreator> entries, List<String> doop) {
+      for(String s in doop) {
+          print("s is $s");
+          entries = new List.from(entries.where((BBBCreator e) {
+              return e.name.contains(s) || e.whatYouDid.contains(s);
+          }));
+      }
+      return entries ;
+  }
+
+  static Future<List<BBBCreator>> slurpAllCredits() async{
+      List<BBBCreator> ret = new List<CreditsObject>();
+      List<BBBCreator> aaa = await slurpCredits("entrants", "Entrant");
       ret.addAll(aaa);
 
       return ret;
   }
 
-  static Future<List<CreditsObject>> slurpCredits(String filename, String title) async{
+  static Future<List<BBBCreator>> slurpCredits(String filename, String title) async{
       print("loading $filename");
       String url = "Credits/${filename}.txt";
       if(!window.location.href.contains("localhost")) url = "http://farragofiction.com/CreditsSource/${filename}.txt";
       String data = await Loader.getResource(url);
       List<String> creditsFromFile = data.split(new RegExp("\n|\r"));
-      List<CreditsObject> ret = new List<CreditsObject>();
+      List<BBBCreator> ret = new List<BBBCreator>();
       for(String s in creditsFromFile) {
           //print("processing $s");
           try {

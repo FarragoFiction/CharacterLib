@@ -236,6 +236,16 @@ class CreditsObject extends CharacterObject
         return ret;
     }
 
+    static List<CreditsObject> filterBy(List<CreditsObject> entries, List<String> doop) {
+        for(String s in doop) {
+            print("s is $s");
+            entries = new List.from(entries.where((CreditsObject e) {
+                return e.name.contains(s) || e.whatYouDid.contains(s);
+            }));
+        }
+        return entries ;
+    }
+
 
     static Future<List<CreditsObject>> slurpCredits(String filename, String title) async{
         print("loading $filename");
