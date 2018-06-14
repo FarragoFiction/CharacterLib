@@ -10,6 +10,10 @@ Element content = querySelector("#content");
 //oh god //
 Future<Null> main() async{
     await Loader.preloadManifest();
+
+    BBBCreator co1 = new BBBCreator("BBCreator","");
+    co1.makeForm(content);
+
     CreditsObject co = new CreditsObject("SomethingMemorable","");
     co.makeForm(content);
 

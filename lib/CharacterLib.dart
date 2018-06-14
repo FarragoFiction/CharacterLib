@@ -2,4 +2,6 @@
 library CreditsLib;
 
 export 'src/CreditsObject.dart';
+export 'src/CharacterObject.dart';
+export 'src/BBBCreator.dart';
 
