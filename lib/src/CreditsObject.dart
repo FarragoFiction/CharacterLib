@@ -228,10 +228,12 @@ class CreditsObject extends CharacterObject
         List<CreditsObject> aaa = await slurpCredits("aaa", "A Rank");
         List<CreditsObject> wranglers = await slurpCredits("wranglers", "Wrangler");
         List<CreditsObject> pioneers = await slurpCredits("pioneers", "Pioneer");
+        List<CreditsObject> patrons = await slurpCredits("patrons", "Patron");
         List<CreditsObject> credits = await slurpCredits("credits", "Buckaroo");
         ret.addAll(aaa);
         ret.addAll(wranglers);
         ret.addAll(pioneers);
+        ret.addAll(patrons);
         ret.addAll(credits);
         return ret;
     }
