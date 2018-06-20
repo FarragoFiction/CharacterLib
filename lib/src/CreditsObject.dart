@@ -114,10 +114,10 @@ class CreditsObject extends CharacterObject
         creditsContainer.append(labelDoll);
         creditsContainer.append(dollBox);
 
-        DivElement phraseContainer = new DivElement()..setInnerHtml("<b>Phrase:</b> $phrase");
+        DivElement phraseContainer = new DivElement()..setInnerHtml("<b>Phrase:</b> $phrase",treeSanitizer: NodeTreeSanitizer.trusted);
         phraseContainer.classes.add("creditsLine");
         creditsContainer.append(phraseContainer);
-        DivElement taskContainer = new DivElement()..setInnerHtml("<b>Acomplishment:</b> $whatYouDid");
+        DivElement taskContainer = new DivElement()..setInnerHtml("<b>Acomplishment:</b> $whatYouDid",treeSanitizer: NodeTreeSanitizer.trusted);
         taskContainer.classes.add("creditsLine");
 
         creditsContainer.append(taskContainer);
