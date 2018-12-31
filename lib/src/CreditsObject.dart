@@ -7,6 +7,7 @@ import "JSONObject.dart";
 
 import 'package:CreditsLib/src/CharacterObject.dart';
 import 'package:DollLibCorrect/DollRenderer.dart';
+import 'package:LoaderLib/Loader.dart';
 //TODO let them pick between 113 and -113 for wiggler sim stats.
 //TODO load from data string
 //TODO slurp from text file

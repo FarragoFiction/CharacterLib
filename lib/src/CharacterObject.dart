@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import "dart:html";
 import "JSONObject.dart";
+import 'package:CommonLib/Random.dart';
 import "package:RenderingLib/RendereringLib.dart";
 import 'package:DollLibCorrect/DollRenderer.dart';
 import 'package:CreditsLib/src/StatObject.dart';

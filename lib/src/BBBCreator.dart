@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:html';
 import 'package:CreditsLib/src/CreditsObject.dart';
-import 'package:RenderingLib/src/loader/loader.dart';
+import 'package:LoaderLib/src/loader.dart';
 
 class BBBCreator extends CreditsObject
 {
