@@ -25,12 +25,12 @@ class CharacterObject {
 
 
     CharacterObject(String this.name, String this.dollString) {
-        initializeStats();
         if(dollString != null && dollString.isNotEmpty) {
             doll = Doll.loadSpecificDoll(dollString);
         }else {
             doll = Doll.randomDollOfType(1);
         }
+        initializeStats();
     }
 
     int get seed {
