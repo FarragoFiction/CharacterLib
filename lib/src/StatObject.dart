@@ -87,14 +87,14 @@ class StatObject {
     }
 
     void copyFromDataString(String dataString) {
-        String rawJson = new String.fromCharCodes(BASE64URL.decode(dataString));
+        String rawJson = new String.fromCharCodes(base64Url.decode(dataString));
         JSONObject json = new JSONObject.fromJSONString(rawJson);
         copyFromJSON(json);
     }
 
     String toDataString() {
         String ret = toJSON().toString();
-        return BASE64URL.encode(ret.codeUnits);
+        return base64Url.encode(ret.codeUnits);
     }
 
     JSONObject toJSON() {

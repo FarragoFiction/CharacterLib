@@ -69,7 +69,7 @@ class CharacterObject {
             dataString = parts[1];
         }
 
-        String rawJson = new String.fromCharCodes(BASE64URL.decode(dataString));
+        String rawJson = new String.fromCharCodes(base64Url.decode(dataString));
         JSONObject json = new JSONObject.fromJSONString(rawJson);
         copyFromJSON(json);
     }
@@ -84,7 +84,7 @@ class CharacterObject {
 
     void loadStatsFromJSON(String idontevenKnow) {
         if(idontevenKnow == null) return;
-        List<dynamic> what = JSON.decode(idontevenKnow);
+        List<dynamic> what = jsonDecode(idontevenKnow);
         //print("what json is $what");
         for(dynamic d in what) {
             //print("dynamic json thing is  $d");
@@ -106,7 +106,7 @@ class CharacterObject {
     String toDataString() {
         try {
             String ret = toJSON().toString();
-            return "$name$labelPattern${BASE64URL.encode(ret.codeUnits)}";
+            return "$name$labelPattern${base64Url.encode(ret.codeUnits)}";
         }catch(e) {
             print(e);
             window.alert("Error Saving Data. Are there any special characters in there? ${validate()} $e");
