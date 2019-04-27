@@ -23,6 +23,76 @@ class CharacterObject {
 
     Element canvasViewer;
 
+    StatObject _patience;
+    StatObject get patience {
+        if(_patience == null) {
+            for(StatObject stat in stats) {
+                if(stat.name == StatObject.PATIENCE) {
+                    _patience = stat;
+                }
+            }
+        }
+        return _patience;
+    }
+
+    StatObject _energetic;
+    StatObject get energetic {
+        if(_energetic == null) {
+            for(StatObject stat in stats) {
+                if(stat.name == StatObject.ENERGETIC) {
+                    _energetic = stat;
+                }
+            }
+        }
+        return _patience;
+    }
+
+    StatObject _idealistic;
+
+    StatObject get idealistic {
+        if(_idealistic == null) {
+            for(StatObject stat in stats) {
+                if(stat.name == StatObject.IDEALISTIC) {
+                    _idealistic = stat;
+                }
+            }
+        }
+        return _idealistic;
+    }
+
+    StatObject _curious;
+    StatObject get curious {
+        if(_curious == null) {
+            for(StatObject stat in stats) {
+                if(stat.name == StatObject.CURIOUS) {
+                    _curious = stat;
+                }
+            }
+        }
+    }
+
+    StatObject _loyal;
+    StatObject get loyal {
+        if(_loyal == null) {
+            for(StatObject stat in stats) {
+                if(stat.name == StatObject.LOYAL) {
+                    _loyal = stat;
+                }
+            }
+        }
+    }
+
+    StatObject _external;
+    StatObject get external {
+        if(_external == null) {
+            for(StatObject stat in stats) {
+                if(stat.name == StatObject.EXTERNAL) {
+                    _external = stat;
+                }
+            }
+        }
+    }
+
 
     CharacterObject(String this.name, String this.dollString) {
         if(dollString != null && dollString.isNotEmpty) {
