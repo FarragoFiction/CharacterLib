@@ -27,7 +27,7 @@ class CharacterObject {
     StatObject get patience {
         if(_patience == null) {
             for(StatObject stat in stats) {
-                if(stat.name == StatObject.PATIENCE) {
+                if(stat.namePositive == StatObject.PATIENCE) {
                     _patience = stat;
                 }
             }
@@ -39,12 +39,12 @@ class CharacterObject {
     StatObject get energetic {
         if(_energetic == null) {
             for(StatObject stat in stats) {
-                if(stat.name == StatObject.ENERGETIC) {
+                if(stat.namePositive == StatObject.ENERGETIC) {
                     _energetic = stat;
                 }
             }
         }
-        return _patience;
+        return _energetic;
     }
 
     StatObject _idealistic;
@@ -52,7 +52,7 @@ class CharacterObject {
     StatObject get idealistic {
         if(_idealistic == null) {
             for(StatObject stat in stats) {
-                if(stat.name == StatObject.IDEALISTIC) {
+                if(stat.namePositive == StatObject.IDEALISTIC) {
                     _idealistic = stat;
                 }
             }
@@ -64,33 +64,36 @@ class CharacterObject {
     StatObject get curious {
         if(_curious == null) {
             for(StatObject stat in stats) {
-                if(stat.name == StatObject.CURIOUS) {
+                if(stat.namePositive == StatObject.CURIOUS) {
                     _curious = stat;
                 }
             }
         }
+        return _curious;
     }
 
     StatObject _loyal;
     StatObject get loyal {
         if(_loyal == null) {
             for(StatObject stat in stats) {
-                if(stat.name == StatObject.LOYAL) {
+                if(stat.namePositive == StatObject.LOYAL) {
                     _loyal = stat;
                 }
             }
         }
+        return _loyal;
     }
 
     StatObject _external;
     StatObject get external {
         if(_external == null) {
             for(StatObject stat in stats) {
-                if(stat.name == StatObject.EXTERNAL) {
+                if(stat.namePositive == StatObject.EXTERNAL) {
                     _external = stat;
                 }
             }
         }
+        return _external;
     }
 
 
