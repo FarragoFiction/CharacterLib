@@ -112,7 +112,7 @@ class BBBCreator extends CreditsObject
   }
 
   static Future<List<BBBCreator>> slurpAllCredits() async{
-      List<BBBCreator> ret = new List<CreditsObject>();
+      List<BBBCreator> ret = new List<BBBCreator>();
       List<BBBCreator> aaa = await slurpCredits("entrants", "Entrant");
       ret.addAll(aaa);
 
