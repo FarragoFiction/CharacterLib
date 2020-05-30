@@ -8,12 +8,18 @@ environment:
   sdk: '>=2.2.0 <3.0.0'
 
 dependencies:
-  RenderingLib:
-    git: git://github.com/FarragoFiction/RenderingLib.git
-  DollLibCorrect:
-    git:  git://github.com/FarragoFiction/DollLibCorrect.git
-  CommonLib:
-    git: git://github.com/FarragoFiction/CommonLib.git
+    DollLibCorrect:
+      git:
+        url: git://github.com/FarragoFiction/DollLibCorrect.git
+        ref: Dart-2.2.0
+    CommonLib:
+      git:
+        url: git://github.com/FarragoFiction/CommonLib.git
+        ref: Dart-2.2.0
+    RenderingLib:
+      git:
+        url: git://github.com/FarragoFiction/RenderingLib.git
+        ref: Dart-2.2.0
 
 dev_dependencies:
   build_runner: ^1.0.0
